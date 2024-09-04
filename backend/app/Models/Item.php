@@ -10,11 +10,16 @@ class Item extends Model
     use HasFactory;
 
     protected $fillable = [
-        'item_id',
+        'id',
         'type',
         'name',
         'description',
         'price',
         'properties',
+    ];
+
+    protected $casts = [
+        'price' => 'json',
+        'properties' => 'json',
     ];
 }

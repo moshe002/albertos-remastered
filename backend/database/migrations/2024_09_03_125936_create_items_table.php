@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('type', length: 30);
             $table->string('name', length: 25)->nullable();
             $table->text('description')->nullable();
-            $table->decimal('price');
+            $table->json('price');
             $table->json('properties')->nullable();
             $table->timestamps();
         });
