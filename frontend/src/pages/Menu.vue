@@ -1,10 +1,20 @@
 <template lang="">
     <div>
         <h1>menu page</h1>
+        <div class="flex flex-wrap gap-5">
+            <div
+                class="border-2 border-green-300 w-[20%]" 
+                v-for="(item, index) in items" 
+                :key="index">
+                {{ item.name }}
+                <img :src=item.image_path alt="item_image" />
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue';
+import { getItems } from '../services/items-service';
 /**
  * TODO:
  * 
@@ -13,11 +23,13 @@ import { ref } from 'vue';
  * learn axios
  * 
  */
-    // http://127.0.0.1:8000/api/menu
+    const items = ref([]);
     try {
-        fetch(`http://127.0.0.1:8000/api/menu`)
-        .then(res => res.json())
-        .then(data => { console.log(data) })
+        getItems()
+        .then((data) => {
+            console.log(data);
+            items.value = data;
+        });
     } catch (e) {
         console.error(`Error fetching data: ${e}`)
     }

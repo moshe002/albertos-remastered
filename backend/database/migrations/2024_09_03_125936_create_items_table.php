@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', length: 25)->nullable();
             $table->text('description')->nullable();
             $table->json('price');
+            $table->string('image_path', length: 9999);
             $table->json('properties')->nullable();
             $table->timestamps();
         });
@@ -45,7 +46,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('item_id');
-            $table->int('quantity');
+            $table->integer('quantity');
             $table->decimal('price',10,2);
 
             $table->foreign('order_id')
