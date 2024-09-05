@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ItemController;
 
 use Illuminate\Http\Request;
@@ -10,4 +11,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/menu', [ItemController::class,'items']);
+Route::get('menu', [ItemController::class,'index']);
+Route::get('menu/create',[ItemController::class,'store']);
+
+Route::get('customers',[CustomerController::class,'index']);
+Route::get('customer/create',[CustomerController::class,'store']);
+
+

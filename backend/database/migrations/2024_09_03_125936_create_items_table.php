@@ -20,6 +20,43 @@ return new class extends Migration
             $table->json('properties')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('phone',15);
+            $table->json('address');
+            $table->timestamps();
+        });
+
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('customer_id');
+            $table->dateTime('order_date');
+            $table->decimal('price',10,2);
+
+            $table->foreign('customer_id')
+                ->references('id')
+                ->on('customers')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('item_id');
+            $table->int('quantity');
+            $table->decimal('price',10,2);
+
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders')
+                ->onDelete('cascade');
+            $table->foreign('item_id')
+                ->references('id')
+                ->on('items')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -27,6 +64,20 @@ return new class extends Migration
      */
     public function down(): void
     {
+        //drop foreign keys
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->dropForeign(['order_id']);
+            $table->dropForeign(['item_id']);
+        });
+
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign(['customer_id']);
+        });
+
+        //drop your balls-- i mean tables
+        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('order');
+        Schema::dropIfExists('customers');
         Schema::dropIfExists('items');
     }
 };

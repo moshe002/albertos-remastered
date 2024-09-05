@@ -9,15 +9,15 @@ class ItemController extends Controller
 {
     //
     //get all items
-    public function items(){
+    public function index()
+    {
         $items = Item::all();
-        
-        return response()->json([
-            'items' => $items
-        ]);
+
+        return response()->json($items);
     }
     //create items
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $item = Item::create([
             'type' => $request->type,
             'name' => $request->name,
@@ -29,12 +29,11 @@ class ItemController extends Controller
         if (!$item) {
             return response()->json([
                 'message' => 'Error occurred during insertion of item record.'
-            ],500);
-        }
-        else {
+            ], 500);
+        } else {
             return response()->json([
                 'message' => 'Item successfully added.',
-            ],200);
+            ], 200);
         }
-    } 
+    }
 }
