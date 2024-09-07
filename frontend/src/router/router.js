@@ -5,9 +5,9 @@ import Menu from "../pages/Menu.vue";
 import Order from "../pages/Order.vue";
 
 export const routes = [
-    { path: '/', component: Home, name: "Home" },
-    { path: '/menu', component: Menu, name: "Menu" },
-    { path: '/order', component: Order, name: "Order" },
+    { path: '/', component: Home, name: "Home", icon: "hi-home" },
+    { path: '/menu', component: Menu, name: "Menu", icon: "md-menubook-round" },
+    { path: '/order', component: Order, name: "Order", icon: "bi-card-list" },
 ];
 
 const router = createRouter({
