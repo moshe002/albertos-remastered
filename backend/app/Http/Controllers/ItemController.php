@@ -16,7 +16,7 @@ class ItemController extends Controller
         return response()->json($items);
     }
     //create items
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $item = Item::create([
             'type' => $request->type,
