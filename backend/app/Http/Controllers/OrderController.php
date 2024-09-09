@@ -29,7 +29,7 @@ class OrderController extends Controller
         $order = Order::create([
             'order_date' => $request->order_date,
             'price' => $request->price
-        ]);
+        ]); 
         
         if ($order){
             return response()->json('Order added successfully',200);
