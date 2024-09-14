@@ -11,16 +11,14 @@ class Item extends Model
 
     protected $fillable = [
         'id',
-        'type',
-        'name',
-        'description',
+        'item_name',
+        'item_type',
+        'item_ingredients',
+        'size',
+        'cheese_type',
+        'quantity',
         'price',
         'image_path',
-        'properties',
-    ];
-
-    protected $casts = [
-        'price' => 'json',
-        'properties' => 'json',
+        'order_id',
     ];
 }

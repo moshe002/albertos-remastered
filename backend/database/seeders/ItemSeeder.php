@@ -14,89 +14,209 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        // remove old data
-        //DB::table('items')->truncate();
-
         // image path
         $image = 'item_images/pizza_slice.jpg';
         $imagePath = 'http://127.0.0.1:8000' . Storage::url($image);
 
+        // pizzas
         Item::firstOrCreate([
-            'type' => 'Ice Cream',
-            'name' => 'Rocky Road',
+            'item_name' => 'Hawaiian',
+            'item_type' => 'Pizza',
         ],
         [
-            'description' => 'One of the best Ice Creams in the market. You can\'t go wrong with Rocky Road',
-            'price' => [ 'item_price' => [250.00] ],
+            'item_ingredients' => 'Cheese, Pineapple Tidbits, Sliced Ham, Olives, Mushrooms',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 80.00,
             'image_path' => $imagePath,
-            'properties' => [
-                'quantity' => 5,
-            ],
+            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
-            'type' => 'Pizza',
-            'name' => 'Hawaiian',
+            'item_name' => 'Yummy Hotdog',
+            'item_type' => 'Pizza',
         ],
         [
-            'description' => 'Inspired by tropical ingredients, this pizza will surely make it worth your while',
-            'price' => [ 'item_price' => [90.00, 135.00] ],
+            'item_ingredients' => 'All Hotdogs, Cheese',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 70.00,
             'image_path' => $imagePath,
-            'properties' => [
-                'size' => ['9"', '11"'],
-                'quantity' => 5,
-                'sauce' => ['Hot Sauce', 'Regular Sauce'],
-                'cheese' => ['Quickmelt', 'Mozarella'],
-                'ingredients' => 'Pineapple Tidbits, Cheese, Olives, Red Pepper, Mushrooms, Beef Tidbits',
-            ],
+            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
-            'type' => 'Pizza',
-            'name' => 'Taco d\' Albertos',
+            'item_name' => 'Ham Delight',
+            'item_type' => 'Pizza',
         ],
         [
-            'description' => 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-            'price' => [ 'item_price' => [100.00, 220.00] ],
+            'item_ingredients' => 'All Ham, Cheese',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 70.00,
             'image_path' => $imagePath,
-            'properties' => [
-                'size' => ['9"', '11"'],
-                'quantity' => 5,
-                'sauce' => ['Hot Sauce', 'Regular Sauce'],
-                'cheese' => ['Quickmelt', 'Mozarella'],
-                'ingredients' => 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-            ],
+            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
-            'type' => 'Pizza',
-            'name' => 'Pizza Supreme',
+            'item_name' => 'Tuna Garlic',
+            'item_type' => 'Pizza',
         ],
         [
-            'description' => 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-            'price' => [ 'item_price' => [90.00, 145.00] ],
+            'item_ingredients' => 'Tuna Flakes, Tomatoes, Onions Sliced',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 80.00,
             'image_path' => $imagePath,
-            'properties' => [
-                'size' => ['9"', '11"'],
-                'quantity' => 5,
-                'sauce' => ['Hot Sauce', 'Regular Sauce'],
-                'cheese' => ['Quickmelt', 'Mozarella'],
-                'ingredients' => 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-            ],
+            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
-            'type' => 'Shake',
-            'name' => 'Mango Shake',
+            'item_name' => 'Garden Express',
+            'item_type' => 'Pizza',
         ],
         [
-            'description' => 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-            'price' => [ 'item_price' => [65.00] ],
+            'item_ingredients' => 'Button Mushroom, Pineapple Tidbits, Black Olives, Onions, Tomatoes, Red & Green Bell Peppers',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 80.00,
             'image_path' => $imagePath,
-            'properties' => [
-                'size' => ['Large'],
-                'quantity' => 5,
-            ],
+            'order_id' => null,
+        ]);
+
+        Item::firstOrCreate([
+            'item_name' => 'Aloha',
+            'item_type' => 'Pizza',
+        ],
+        [
+            'item_ingredients' => 'Lots of Pineapples, Ham Sausage, Mushroom & Green Bell Peppers',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 80.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        // breakfast meals
+        Item::firstOrCreate([
+            'item_name' => 'Chicken Hotdog',
+            'item_type' => 'Breakfast Meals',
+        ],
+        [
+            'item_ingredients' => 'Rice, Chicken Hotdog',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 40.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        Item::firstOrCreate([
+            'item_name' => 'Ham',
+            'item_type' => 'Breakfast Meals',
+        ],
+        [
+            'item_ingredients' => 'Rice, Ham',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 50.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        Item::firstOrCreate([
+            'item_name' => 'Hungarian Sausage',
+            'item_type' => 'Breakfast Meals',
+        ],
+        [
+            'item_ingredients' => 'Rice, Hungarian Sausage',
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 90.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        // ice creams
+        Item::firstOrCreate([
+            'item_name' => 'Cookies n Cream',
+            'item_type' => 'Ice Cream',
+        ],
+        [
+            'item_ingredients' => null,
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 135.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        Item::firstOrCreate([
+            'item_name' => 'Chocolate',
+            'item_type' => 'Ice Cream',
+        ],
+        [
+            'item_ingredients' => null,
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 120.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        Item::firstOrCreate([
+            'item_name' => 'Vanilla',
+            'item_type' => 'Ice Cream',
+        ],
+        [
+            'item_ingredients' => null,
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 120.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        // shakes
+        Item::firstOrCreate([
+            'item_name' => 'Mango Shake',
+            'item_type' => 'Shakes',
+        ],
+        [
+            'item_ingredients' => null,
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 60.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
+        ]);
+
+        // drinks
+        Item::firstOrCreate([
+            'item_name' => 'Coke',
+            'item_type' => 'Drinks',
+        ],
+        [
+            'item_ingredients' => null,
+            'size' => null,
+            'cheese_type' => null,
+            'quantity' => null,
+            'price' => 80.00,
+            'image_path' => $imagePath,
+            'order_id' => null,
         ]);
     }
 }
