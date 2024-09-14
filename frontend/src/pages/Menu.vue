@@ -1,32 +1,26 @@
 <script setup>
 import { ref } from 'vue';
 import { getItems } from '../services/items-service';
-import Loading from '../components/Loading.vue';
-import { useToast } from 'primevue/usetoast';
-import Toast from 'primevue/toast';
+import MenuItems from '../components/MenuItems.vue';
 
-    const toast = useToast();
+    const pizzaItems = ref([]);
+    const breakfastMealItems = ref([]);
+    const iceCreamItems = ref([]);
+    const shakeItems = ref([]);
+    const drinkItems = ref([]);
 
-    const items = ref([]);
     const isLoading = ref(true);
-
-    const showToast = () => {
-        console.log('showToast');
-        toast.add({ 
-                severity: 'error', 
-                summary: 'Error', 
-                detail: 'There is a problem fetching the data, try again later.', 
-                life: 3000,
-                group: 'br',
-            });
-    }
-
 
     try {
         getItems()
         .then((data) => {
             //console.log(data);
-            items.value = data;
+            pizzaItems.value = data.pizzas;
+            breakfastMealItems.value = data.breakfastMeals;
+            iceCreamItems.value = data.iceCreams;
+            shakeItems.value = data.shakes;
+            drinkItems.value = data.drinks;
+
             isLoading.value = false;
         });
     } catch (e) {
@@ -35,22 +29,17 @@ import Toast from 'primevue/toast';
 </script>
 
 <template lang="">
-    <div class="pt-20">
-        <h1>See our pizzas and more!</h1>
-        <div class="flex flex-wrap gap-5">
-            <Loading v-if="isLoading" />
-            <div
-                v-else
-                class="border-2 border-green-300 w-[20%]" 
-                v-for="(item, index) in items" 
-                :key="index">
-                {{ item.name }}
-                <img :src=item.image_path alt="item_image" />
-            </div>
-        </div>
-        <button @click="showToast">click me to show toast</button>
+    <div class="flex flex-col gap-5 pt-24 pb-3 text-center">
+        <h1 class="text-xl">See our pizzas and more!</h1>
+        <MenuItems 
+            :isLoading="isLoading"
+            :pizzaItems="pizzaItems"
+            :breakfastMealItems="breakfastMealItems"
+            :iceCreamItems="iceCreamItems"
+            :shakeItems="shakeItems"
+            :drinkItems="drinkItems" 
+        /> 
     </div>
-    <Toast />
 </template>
 
 <style lang="">

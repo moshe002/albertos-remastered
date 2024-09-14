@@ -22,8 +22,11 @@ Route::get('customer/create',[CustomerController::class,'store']);
 Route::delete('customer/delete/{id}', [CustomerController::class,'destroy']);
 
 //order routes
-Route::get('orders', [OrderController::class,'index']);
-Route::get('order/{id}', [OrderController::class,'show']);
-Route::post('order/create', [OrderController::class,'store']);
+Route::get('orders', [OrderController::class, 'index']);
+Route::get('order/{id}', [OrderController::class, 'show']);
+Route::post('order/add', [OrderController::class, 'order']);
 //Route::get('order/update',[OrderController::class,'edit']);
 //Route::put('order/update',[OrderController::class,'update']);
+
+// order items route
+//Route::post('order/add', [ItemController::class, 'orderItems']);

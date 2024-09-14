@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="flex justify-center pt-20 h-screen w-full">
+    <div class="flex justify-center pt-24 h-screen w-full">
         <h1 class="text-lg">Welcome to Albertos</h1>
     </div>
 </template>

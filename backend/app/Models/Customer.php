@@ -10,12 +10,15 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
-        'phone',
-        'address'
+        'address',
+        'phone_number',
+        'email',
     ] ;
 
-    protected $casts = [
-        'address' => 'json',
-    ] ;
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'customer_id', 'id');
+    }
 }
