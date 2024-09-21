@@ -28,5 +28,6 @@ Route::post('order/add', [OrderController::class, 'order']);
 //Route::get('order/update',[OrderController::class,'edit']);
 //Route::put('order/update',[OrderController::class,'update']);
 
-// order items route
-//Route::post('order/add', [ItemController::class, 'orderItems']);
+//order items route
+Route::post('items/order', [ItemController::class, 'orderItems']);
+Route::get('items/{itemIds}', [ItemController::class, 'getOrderedItems']);

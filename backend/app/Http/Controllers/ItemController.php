@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\OrderedItem;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -60,24 +61,42 @@ class ItemController extends Controller
     }
 
     // items to be ordered
-    // public function orderItems(Request $request)
-    // {
-    //     $items = Item::create([
-    //         'item_type' => $request->item_type,
-    //         'item_name' => $request->item_name,
-    //         'ingredients' => $request->item_ingredients,
-    //         'total_price' => $request->price * $request->quantity,
-    //         'quantity' => $request->quantity,
-    //     ]);
+    public function orderItems(Request $request)
+    {
+        $items = OrderedItem::create([
+            'item_ids' => $request->item_ids,
+            'customer_id' => $request->customer_id,
+            'order_id' => $request->order_id,
+        ]);
 
-    //     if (!$items) {
-    //         return response()->json([
-    //             'message' => 'Error occurred during insertion of item record.'
-    //         ], 500);
-    //     } else {
-    //         return response()->json([
-    //             'message' => 'Item successfully added.',
-    //         ], 200);
-    //     }
-    // }
+        if (!$items) {
+            return response()->json([
+                'message' => 'Error occurred during insertion of item record.'
+            ], 500);
+        } else {
+            return response()->json([
+                'message' => 'Item successfully ordered.',
+            ], 200);
+        }
+    }
+
+    public function getOrderedItems($itemIds)
+    {
+        $itemIdsArray = explode(',', $itemIds);
+
+        $items = Item::find($itemIdsArray);
+        if($items->isNotEmpty())
+        {
+            return response()->json([
+                'message' => 'Items found.',
+                'items' => $items,
+            ], 200);
+        }
+        else
+        {
+            return response()->json([
+                'message' => 'Items not found!.',
+            ], 404);
+        }
+    }
 }

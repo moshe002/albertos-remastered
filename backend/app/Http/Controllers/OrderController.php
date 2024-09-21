@@ -29,30 +29,12 @@ class OrderController extends Controller
     // order
     public function order(Request $request) {
 
-        $validated = $request->validate([
-            'date_ordered' => 'required|date',
-            'instruction' => 'nullable|string',
-            'customer_id' => 'required|integer|exists:customers,id',
-            'items' => 'required|array',
-            'items.*.item_name' => 'required|string',
-            'items.*.item_type' => 'nullable|string',
-            'items.*.item_ingredients' => 'nullable|string',
-            'items.*.quantity' => 'required|integer|min:1',
-            'items.*.price' => 'required|numeric|min:0',
-        ]);
-
         $order = Order::create([
             'date_ordered' => $request->date_ordered,
             'instruction' => $request->instruction,
             'customer_id' => $request->customer_id,
         ]); 
 
-        Log::info('Order Created:', $order);
-
-        foreach ($validated['items'] as $itemData) {
-            $order->items()->create($itemData);
-        }
-        
         if ($order){
             return response()->json(['message' => 'Order added successfully'], 200);
         } else {

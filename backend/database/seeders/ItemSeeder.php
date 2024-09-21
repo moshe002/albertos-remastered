@@ -30,7 +30,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 80.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
@@ -44,7 +43,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 70.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
@@ -58,7 +56,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 70.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
@@ -72,7 +69,7 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 80.00,
             'image_path' => $imagePath,
-            'order_id' => null,
+            
         ]);
 
         Item::firstOrCreate([
@@ -86,7 +83,7 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 80.00,
             'image_path' => $imagePath,
-            'order_id' => null,
+            
         ]);
 
         Item::firstOrCreate([
@@ -100,7 +97,7 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 80.00,
             'image_path' => $imagePath,
-            'order_id' => null,
+            
         ]);
 
         // breakfast meals
@@ -115,7 +112,7 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 40.00,
             'image_path' => $imagePath,
-            'order_id' => null,
+            
         ]);
 
         Item::firstOrCreate([
@@ -129,7 +126,7 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 50.00,
             'image_path' => $imagePath,
-            'order_id' => null,
+            
         ]);
 
         Item::firstOrCreate([
@@ -143,7 +140,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 90.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         // ice creams
@@ -158,7 +154,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 135.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
@@ -172,7 +167,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 120.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         Item::firstOrCreate([
@@ -186,7 +180,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 120.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         // shakes
@@ -201,7 +194,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 60.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
 
         // drinks
@@ -216,7 +208,6 @@ class ItemSeeder extends Seeder
             'quantity' => null,
             'price' => 80.00,
             'image_path' => $imagePath,
-            'order_id' => null,
         ]);
     }
 }

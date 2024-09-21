@@ -21,14 +21,7 @@ return new class extends Migration
             $table->integer('quantity')->nullable();
             $table->double('price');
             $table->string('image_path', length: 100);
-            $table->unsignedBigInteger('order_id')->nullable();
             $table->timestamps();
-
-            $table->foreign('order_id')
-                ->references('id')
-                ->on('orders')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

@@ -19,7 +19,6 @@ class Item extends Model
         'quantity',
         'price',
         'image_path',
-        'order_id',
     ];
 
     public function order()

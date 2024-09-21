@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class OrderedItem extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'date_ordered',
-        'instruction',
+        'item_ids',
         'customer_id',
+        'order_id'
     ];
 
     public function customer()
@@ -21,8 +21,12 @@ class Order extends Model
         return $this->belongsTo(Customer::class, 'customer_id', 'id');
     }
 
-    public function orderedItems()
+    public function order()
     {
-        return $this->hasOne(OrderedItem::class, 'order_id', 'id');
+        return $this->belongsTo(Order::class, 'order_id', 'id');
     }
+
+    protected $casts = [
+        'item_ids' => 'array',
+    ];
 }
