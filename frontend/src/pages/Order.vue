@@ -1,13 +1,21 @@
 <script setup>
-import Order from '../components/order/Order.vue';
+import StartOrder from '../components/order/StartOrder.vue';
 import OrderItems from '../components/order/OrderItems.vue';
+import { ref } from 'vue';
+
+const orderState = ref(false);
+
+const updateOrderState = (newVal) => {
+    orderState.value = newVal;
+};
 
 </script>
 
 <template lang="">
     <div class="pt-24">
         <h1>order page</h1>
-        <Order />
+        <StartOrder :orderState="orderState" @updateOrderState="updateOrderState" v-if="!orderState" />
+        <OrderItems v-else />
         <!---
             after first order OrderItems will follow
             <OrderItems />

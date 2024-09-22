@@ -26,6 +26,14 @@ import MenuItems from '../components/MenuItems.vue';
     } catch (e) {
         console.error(`Error fetching data: ${e}`)
     }
+
+    /**
+     * change ui layout to be like
+     * the same as mcdonalds kiosk
+     * sidebar for different types of items
+     * so customer wont scroll up and down too much
+     * 
+     */
 </script>
 
 <template lang="">
