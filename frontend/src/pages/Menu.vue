@@ -1,52 +1,70 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { getItems } from '../services/items-service';
-import MenuItems from '../components/MenuItems.vue';
+import MenuItems from '../components/menu/MenuItems.vue';
 
-    const pizzaItems = ref([]);
-    const breakfastMealItems = ref([]);
-    const iceCreamItems = ref([]);
-    const shakeItems = ref([]);
-    const drinkItems = ref([]);
+const pizzaItems = ref([]);
+const breakfastMealItems = ref([]);
+const iceCreamItems = ref([]);
+const shakeItems = ref([]);
+const drinkItems = ref([]);
 
-    const isLoading = ref(true);
+const renderItem = ref([]);
+const renderItemName = ref("");
 
+const isLoading = ref(true);
+
+const fetchMenuData = async () => {
     try {
-        getItems()
-        .then((data) => {
-            //console.log(data);
-            pizzaItems.value = data.pizzas;
-            breakfastMealItems.value = data.breakfastMeals;
-            iceCreamItems.value = data.iceCreams;
-            shakeItems.value = data.shakes;
-            drinkItems.value = data.drinks;
+        const data = await getItems();
+        //console.log(data);
+        pizzaItems.value = data.pizzas;
+        breakfastMealItems.value = data.breakfastMeals;
+        iceCreamItems.value = data.iceCreams;
+        shakeItems.value = data.shakes;
+        drinkItems.value = data.drinks;
 
-            isLoading.value = false;
-        });
+        isLoading.value = false;
+        renderMenuItem("Pizzas");
     } catch (e) {
         console.error(`Error fetching data: ${e}`)
     }
+}
 
-    /**
-     * change ui layout to be like
-     * the same as mcdonalds kiosk
-     * sidebar for different types of items
-     * so customer wont scroll up and down too much
-     * 
-     */
+onMounted(() => {
+    fetchMenuData();
+});
+
+const renderMenuItem = (categoryName) => {
+    renderItemName.value = categoryName;
+    switch(categoryName) {
+        case "Pizzas":
+            renderItem.value = pizzaItems.value;
+            break;
+        case "Breakfast Meals":
+            renderItem.value = breakfastMealItems.value;
+            break;
+        case "Ice Creams":
+            renderItem.value = iceCreamItems.value;    
+            break;
+        case "Shakes":
+            renderItem.value = shakeItems.value;    
+            break;
+        case "Drinks":
+            renderItem.value = drinkItems.value;    
+            break;
+    }
+};
 </script>
 
 <template lang="">
-    <div class="flex flex-col gap-5 pt-24 pb-3 text-center">
-        <h1 class="text-xl">See our pizzas and more!</h1>
-        <MenuItems 
-            :isLoading="isLoading"
-            :pizzaItems="pizzaItems"
-            :breakfastMealItems="breakfastMealItems"
-            :iceCreamItems="iceCreamItems"
-            :shakeItems="shakeItems"
-            :drinkItems="drinkItems" 
-        /> 
+    <div class="flex pt-24 h-screen text-center">
+        <MenuItems
+            :renderItem="renderItem"
+            :renderItemName="renderItemName" 
+            :isLoading="isLoading" 
+            :renderMenuItem="renderMenuItem" 
+        />
     </div>
 </template>
 

@@ -13,7 +13,6 @@ const updateOrderState = (newVal) => {
 
 <template lang="">
     <div class="pt-24">
-        <h1>order page</h1>
         <StartOrder :orderState="orderState" @updateOrderState="updateOrderState" v-if="!orderState" />
         <OrderItems v-else />
         <!---

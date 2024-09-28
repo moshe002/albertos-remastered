@@ -14,9 +14,24 @@ import {
     HiHome, 
     MdMenubookRound,
     BiCardList,
+    CoPizza,
+    GiMeal,
+    IoIceCreamSharp,
+    CoDrink,
+    LaWineBottleSolid,
 } from "oh-vue-icons/icons";
 
-addIcons(PrSpinner, HiHome, MdMenubookRound, BiCardList);
+addIcons(
+    PrSpinner, 
+    HiHome, 
+    MdMenubookRound, 
+    BiCardList,
+    CoPizza,
+    GiMeal,
+    IoIceCreamSharp,
+    CoDrink,
+    LaWineBottleSolid
+);
 
 const app = createApp(App); 
 

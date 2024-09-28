@@ -12,8 +12,8 @@ const showTabName = (tabIndex) => hoveredTab.value = tabIndex;
 
 <template>
   <div class="fixed top-0 left-0 w-full h-[10%] z-20">
-    <div class="flex justify-between items-center border-b-2 backdrop-blur-sm">
-      <img class="w-[20%] h-20 ml-3 my-2" :src="albertosLogo" alt="albertos_logo">
+    <div class="flex justify-between items-center backdrop-blur-sm bg-yellow-300">
+      <img class="w-[20%] h-20 ml-3 my-2 shadow-xl" :src="albertosLogo" alt="albertos_logo">
       <ul class="flex justify-end gap-10 p-5 bg-transparent">
         <li 
           v-for="(route, index) 
