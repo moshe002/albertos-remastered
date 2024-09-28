@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { routes } from '../router/router.js';
-import albertosLogo from '../../public/images/albertos logo.jpg';
+import albertosLogo from '/images/albertos logo.jpg';
 
 const routeData = ref(routes);
 const hoveredTab = ref(null);
@@ -17,7 +17,7 @@ const showTabName = (tabIndex) => hoveredTab.value = tabIndex;
       <ul class="flex justify-end gap-10 p-5 bg-transparent">
         <li 
           v-for="(route, index) 
-          in routeData" 
+          in routeData.slice(0, 2)" 
           :key="index" 
           @mouseenter="showTabName(index)"
           @mouseleave="hoveredTab = null"

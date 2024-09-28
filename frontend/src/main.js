@@ -19,6 +19,8 @@ import {
     IoIceCreamSharp,
     CoDrink,
     LaWineBottleSolid,
+    CoCart,
+    BiArrowLeftShort,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -30,7 +32,9 @@ addIcons(
     GiMeal,
     IoIceCreamSharp,
     CoDrink,
-    LaWineBottleSolid
+    LaWineBottleSolid,
+    CoCart,
+    BiArrowLeftShort
 );
 
 const app = createApp(App); 
