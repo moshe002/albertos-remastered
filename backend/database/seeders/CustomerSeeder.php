@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Customer;
+use Hash;
+use Illuminate\Database\Seeder;
 
 class CustomerSeeder extends Seeder
 {
@@ -18,7 +18,8 @@ class CustomerSeeder extends Seeder
             'name' => 'John Doe',
             'address' => 'Ramos, Cebu City',
             'phone_number' => '09123456789',
-            'email' => 'johndoe@example.com'
+            'email' => 'johndoe@example.com',
+            'password' => Hash::make('moses123'),
         ]);
     }
 }

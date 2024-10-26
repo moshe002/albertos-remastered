@@ -49,9 +49,7 @@ const handleSubmit = () => {
     console.log("handleSubmit");
 };
 
-const backToMenu = () => {
-    router.push({ path: '/menu' });
-};
+const backToMenu = () => router.push({ path: '/menu' });
 
 const cancelOrder = () => {
     localStorage.removeItem('orders');
