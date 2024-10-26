@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('date_ordered');
-            $table->text('instruction')->nullable();
+        Schema::create('activation_tokens', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
+            $table->text('token');
+            $table->boolean('revoked')->default(false);
             $table->timestamps();
 
             $table->foreign('customer_id')
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order');
+        Schema::dropIfExists('activation_tokens');
     }
 };

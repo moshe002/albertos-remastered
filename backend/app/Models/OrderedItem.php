@@ -13,7 +13,7 @@ class OrderedItem extends Model
         'id',
         'item_ids',
         'customer_id',
-        'order_id'
+        'order_id',
     ];
 
     public function customer()

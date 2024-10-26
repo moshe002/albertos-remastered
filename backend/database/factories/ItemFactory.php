@@ -21,7 +21,7 @@ class ItemFactory extends Factory
             'type' => $this->faker->word,
             'name' => $this->faker->word,
             'description' => $this->faker->sentence,
-            'price' => json_encode([ 'item_price' => [1.00, 22.00] ]),
+            'price' => json_encode(['item_price' => [1.00, 22.00]]),
             'properties' => json_encode([
                 'size' => ['9"', '11"'],
                 'quantity' => 1,
