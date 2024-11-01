@@ -9,8 +9,9 @@ class Item extends Model
 {
     use HasFactory;
 
+    protected $table = 'items';
+
     protected $fillable = [
-        'id',
         'item_name',
         'item_type',
         'item_ingredients',
