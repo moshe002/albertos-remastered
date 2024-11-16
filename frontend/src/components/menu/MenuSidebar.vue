@@ -25,7 +25,7 @@ const props = defineProps({
         v-for="(category, index) in itemCategories" 
         :class="[
             'py-2 hover:bg-orange-600/20 rounded-md', 
-            renderItemName === category.name ? 'border-b-2 border-orange-500/70' : '',
+            renderItemName === category.name ? 'bg-orange-600/20' : '',
             'duration-200'
         ]" 
         :key="index"
