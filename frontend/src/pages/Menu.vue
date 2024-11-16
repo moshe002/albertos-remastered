@@ -17,7 +17,9 @@ const isLoading = ref(true);
 const fetchMenuData = async () => {
     try {
         const data = await getItems();
-        //console.log(data);
+        
+        console.log(data);
+
         pizzaItems.value = data.pizzas;
         breakfastMealItems.value = data.breakfastMeals;
         iceCreamItems.value = data.iceCreams;
@@ -55,6 +57,7 @@ const renderMenuItem = (categoryName) => {
             break;
     }
 };
+
 </script>
 
 <template lang="">

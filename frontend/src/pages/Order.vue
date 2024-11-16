@@ -21,22 +21,20 @@ onMounted(() => {
         const itemCounts = {};
 
         for (const order of ordersArray) {
-            // Increment the count for this itemId
             if (itemCounts[order.itemId]) {
                 itemCounts[order.itemId]++;
             } else {
-                itemCounts[order.itemId] = 1; // Initialize count to 1
+                itemCounts[order.itemId] = 1;
             }
         }
 
-        // Now build the filteredOrders with the occurrence count
         for (const order of ordersArray) {
             if (!uniqueItemIds.has(order.itemId)) {
                 uniqueItemIds.add(order.itemId);
-                // Add the count to the order object
+
                 filteredOrders.push({
-                    ...order, // Spread the existing properties
-                    count: itemCounts[order.itemId] // Add the count property
+                    ...order,
+                    count: itemCounts[order.itemId]
                 });
             }
         }
@@ -60,12 +58,12 @@ const cancelOrder = () => {
 
 <template lang="">
     <div class="flex flex-col gap-5 items-center pt-28 pb-5 h-full text-center overflow-auto">
-        <h1 class="mb-5">These are your orders:</h1>
+        <h1 class="mb-5 text-xl">These are your orders:</h1>
         <ul class="flex flex-wrap items-center justify-around gap-3 p-2 w-full">
-            <li v-for="(order, index) in orders" :key="index" class="flex flex-col items-center p-2 bg-yellow-300 rounded-md">
-                Item Name: {{ order.itemName }}
-                <img :src="order.imagePath" alt="item_image" class="h-14 w-14" />
-                <p>quantity: {{order.count}}</p>
+            <li v-for="(order, index) in orders" :key="index" class="flex flex-col items-center w-[20%] p-2 bg-yellow-300/65 shadow-xl rounded-md">
+                {{ order.itemName }}
+                <img :src="order.imagePath" alt="item_image" class="" />
+                <p>Qty: {{order.count}}</p>
             </li>
         </ul>
         <form class="flex flex-col items-center text-center gap-5 p-3" @submit.prevent="handleSubmit">
