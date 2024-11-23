@@ -1,0 +1,19 @@
+{
+    "semi": true,
+    "tabWidth": 2,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "importOrder": [
+        "^components/(.*)$",
+        "^config/(.*)$",
+        "^pages/(.*)$",
+        "^router/(.*)$",
+        "^theme/(.*)$",
+        "^utils/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": false,
+    "importOrderSortSpecifiers": true
+}
+  
