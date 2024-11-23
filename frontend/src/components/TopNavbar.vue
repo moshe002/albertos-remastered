@@ -21,7 +21,7 @@ const displayRoutes = computed(() => {
 <template>
   <div class="fixed top-0 left-0 w-full h-[10%] z-20">
     <div class="flex justify-between items-center backdrop-blur-sm bg-[#FFFF00]">
-      <img class="w-[15%] h-20 ml-3 my-2" :src="albertosLogo" alt="albertos_logo">
+      <img class="m-w-[15%] h-20 ml-3 my-2" :src="albertosLogo" alt="albertos_logo">
       <ul class="flex justify-end gap-10 p-5 bg-transparent">
         <li 
           v-for="(route, index) 

@@ -64,7 +64,7 @@ const hoverStyle = computed(() => ({
 </script>
 
 <template lang="">
-    <div class="flex flex-col w-[10%] justify-around p-3 bg-yellow-200">
+    <div class="flex sm:flex-col fixed sm:static bottom-0 w-full sm:w-[10%] justify-around p-3 bg-yellow-200">
         <MenuSidebar :renderMenuItem="renderMenuItem" :renderItemName="renderItemName" />
     </div>
     <Loading v-if="isLoading" />
@@ -72,7 +72,7 @@ const hoverStyle = computed(() => ({
         <h1 class="mb-10 text-3xl">{{ renderItemName }}</h1>
         <div class="flex flex-wrap justify-center gap-5">
             <div
-                class="flex flex-col justify-between items-center gap-5 shadow-lg w-[20%] p-2 rounded-md border-2 hover:border-yellow-300 duration-150" 
+                class="flex flex-col justify-between items-center gap-5 shadow-lg w-[40%] sm:w-[20%] p-2 rounded-md border-2 hover:border-yellow-300 duration-150" 
                 v-for="(item, index) in renderItem" 
                 :key="index"
                 @mouseover="onHover($event, item.item_name, item.item_ingredients, item.price)"
@@ -89,16 +89,18 @@ const hoverStyle = computed(() => ({
             </div>
         </div>
     </div>
-    <button 
-        @click="handleToOrder" 
-        :class="orders.length > 0 ? 'fixed bottom-10 right-20 w-auto h-auto p-3 shadow-2xl rounded-md text-white bg-orange-400 animate-bounce' : 'hidden'"
-    >
-            <v-icon name="bi-card-list" class="size-5" />
-            Your order/s: <span class="text-red-600 text-xl font-bold">{{orders.length}}</span>
-    </button>
+    <div>
+        <button 
+            @click="handleToOrder" 
+            :class="orders.length > 0 ? 'fixed bottom-20 sm:bottom-10 right-10 sm:right-20 w-auto h-auto p-3 shadow-2xl rounded-md text-white bg-orange-400 animate-bounce z-50' : 'hidden'"
+        >
+                <v-icon name="bi-card-list" class="size-5" />
+                Your order/s: <span class="text-red-600 text-xl font-bold">{{orders.length}}</span>
+        </button>
+    </div>
     <div 
         v-if="hoverDisplay" 
-        class="flex flex-col w-auto gap-5 absolute p-2 m-3 border-2 border-yellow-200 bg-white shadow-2xl rounded-md z-50"
+        class="flex flex-col w-auto gap-5 duration-500 absolute p-2 m-3 border-2 border-yellow-200 bg-white shadow-2xl rounded-md z-50"
         :style="hoverStyle"
     >
         <p class="font-bold">{{ hoverElementData.item_name }}</p>
@@ -114,5 +116,4 @@ const hoverStyle = computed(() => ({
 </template>
 
 <style lang="">
-    
 </style>
