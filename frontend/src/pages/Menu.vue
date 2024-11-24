@@ -61,7 +61,7 @@ const renderMenuItem = (categoryName) => {
 </script>
 
 <template lang="">
-    <div class="flex pt-24 h-screen text-center">
+    <div class="relative sm:flex pt-24 sm:h-screen pb-32 sm:pb-0 text-center overflow-hidden">
         <MenuItems
             :renderItem="renderItem"
             :renderItemName="renderItemName" 
